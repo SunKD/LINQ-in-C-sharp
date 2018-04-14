@@ -24,6 +24,9 @@ namespace MusicLINQ
             foreach(Artist artist in artistQuery){
                 System.Console.WriteLine(artist.ArtistName + ", " + artist.Age);
             }
+
+            //another way to do it
+            Artists.Where(e => e.Hometown == "Mount Vernon").ToList().ForEach(e=>System.Console.WriteLine(e.ArtistName+ ", "+ e.Age));
             //=========================================================
             //Who is the youngest artist in our collection of artists?
             //=========================================================
@@ -33,6 +36,11 @@ namespace MusicLINQ
             {
                 System.Console.WriteLine(artist.ArtistName + ", " + artist.Age);
             }
+
+            //another way to do it
+            var min2 = Artists.Min(e=>e.Age);
+            Artists.Where(p=>p.Age == min2).ToList().ForEach(e=>System.Console.WriteLine(e.ArtistName + ", " + e.Age));
+
             //=========================================================
             //Display all artists with 'William' somewhere in their 
             //real name        
